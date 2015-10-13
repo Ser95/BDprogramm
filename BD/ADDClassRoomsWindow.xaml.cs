@@ -52,11 +52,11 @@ namespace BD
                     else
                     {
                         flag = true;
-                        s = cb[i].Content.ToString();
+                        s =cb[i].Content.ToString();
                     }
                 }
             }
-            if (flag) s += "!";
+            if (flag) s += "!')";
             return s;
         }
        
@@ -70,8 +70,11 @@ namespace BD
                 MessageBox.Show("Необходимо выбрать тип аудитории");
                 return;
             }
-            commandText = "exec ADDClassRooms "+tbNumber.Text+","+tbHousing.Text+","+s;
+            commandText = "Insert into dbo.ClassRooms (Number,Housing,Types) values(" + tbNumber.Text + "," + tbHousing.Text + "," + "N'" + s;
             SqlCommand command = new SqlCommand(commandText, connection);
+
+
+
             try
             {
                 command.ExecuteNonQuery();
@@ -82,5 +85,6 @@ namespace BD
             }
            
         }
+     
     }
 }
