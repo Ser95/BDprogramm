@@ -29,7 +29,7 @@ namespace BD
         {
             if (flag == 0)
             {
-                CommandSelect = "select * from RoomTypes";
+                CommandSelect = "select * from Types";
                 Name = "Типы аудиторий";
                 Title = Name;
             }
@@ -54,8 +54,9 @@ namespace BD
             int Visiblecolumn=0;
             if (flag == 0)
             {
-                Visiblecolumn = 1;
-                dgViewData.Columns[0].Header = "Тип аудитории";
+                Visiblecolumn = 2;
+                dgViewData.Columns[0].Header ="IDдля себя";
+                dgViewData.Columns[1].Header = "Тип аудитории";
                
             }
             else if (flag == 1)
@@ -66,9 +67,10 @@ namespace BD
             }
             else
             {
-                Visiblecolumn = 2;
-                dgViewData.Columns[0].Header = "Название группы";
-                dgViewData.Columns[1].Header = "Номер подгруппы";
+                Visiblecolumn = 3;
+                dgViewData.Columns[0].Header = "ID";
+                dgViewData.Columns[1].Header = "Название группы";
+                dgViewData.Columns[2].Header = "Номер подгруппы";
             }
             foreach (DataGridColumn column in dgViewData.Columns)
             {
@@ -110,21 +112,39 @@ namespace BD
                 return;
             }
             DataRowView rowView = dgViewData.SelectedValue as DataRowView;
-            MessageBox.Show(rowView[0].ToString());    
-          
+            MessageBox.Show(rowView[0].ToString());
+            string s;
             if (flag == 0)
             {
-               //сделать отправку запроса на проверку наличия в Classrooms,
-
+              s = "delete from Types where IDTypes=" + rowView[0].ToString();
             }
             else if (flag == 1)
             {
-               
+                s = "delete from Teachers where IDTeachers=" + rowView[0].ToString();
             }
             else
             {
-              
+                s = "delete from SubGroups where IDGroups=" + rowView[0].ToString();
             }
+            ////////////////
+            if (fwbd.ExecCommand(s))
+            {
+                MessageBox.Show("Удаление прошло успешно");
+            }
+            else
+            {
+                MessageBox.Show("не удалось");
+                return;
+            }
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            //ADDTableWin f = new ADDTableWin(fwbd.connection, flag);
+            //f.ShowDialog();
+            BDrep f = new BDrep(fwbd.connection);
+            f.FilingTeachers();
+            MessageBox.Show("stop");
         }
 
 
