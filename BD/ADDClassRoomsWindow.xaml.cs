@@ -23,67 +23,69 @@ namespace BD
     {
         int countcheckbox;
         SqlConnection connection;
-        CheckBox[] cb;
+        CheckBox[] cb,cb1;
+        int[] mapping;
         public ADDClassRoomsWindow(SqlConnection connection)
         {
             InitializeComponent();
             this.connection = connection;
+         
+
         }
         //проблема по извлечению checkbox
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Grid grid1 = new Grid();
             ForWorkBD fr = new ForWorkBD(connection);
-            fr.FillinfCheckBox(ref cb, "select * from RoomTypes",grid1);           
+            fr.FillinfCheckBox(ref cb,ref cb1,ref mapping, "select * from Types",grid1);           
             scr.Content = grid1;
         }
-        string chboxreturn()//возврат значений отмеченных чекбоксов для бд
-        {
-            string s = "null";
-            bool flag = false;
-            for (int i = 0; i < cb.Count(); i++)
-            {
-                if(cb[i].IsChecked==true)
-                {
-                    if(flag)
-                    {
-                        s += "+"+cb[i].Content.ToString();
-                    }
-                    else
-                    {
-                        flag = true;
-                        s =cb[i].Content.ToString();
-                    }
-                }
-            }
-            if (flag) s += "!')";
-            return s;
-        }
+        
        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string commandText = "",s;
-            s=chboxreturn();
-            if (s == "null")
-            {
-                MessageBox.Show("Необходимо выбрать тип аудитории");
-                return;
-            }
-            commandText = "Insert into dbo.ClassRooms (Number,Housing,Types) values(" + tbNumber.Text + "," + tbHousing.Text + "," + "N'" + s;
-            SqlCommand command = new SqlCommand(commandText, connection);
-
-
-
+            ForWorkBD fwbd = new ForWorkBD(connection);
+            int k = fwbd.NumberID("select IDrooms from ClassRooms order by IDrooms Desc");
+            SqlCommand command = new SqlCommand();
+            command.Connection=connection;
+            command.CommandText = "insert into ClassRooms (IDrooms,Housing,Number) Values(@IDrooms,@Housing,@Number)";
+            command.Parameters.AddWithValue("@IDrooms", k);
+            command.Parameters.AddWithValue("@Housing", tbHousing.Text);
+            command.Parameters.AddWithValue("@Number", tbNumber.Text);
             try
             {
-                command.ExecuteNonQuery();
+              command.ExecuteNonQuery();
             }
             catch
             {
                 MessageBox.Show("ERROR");
             }
-           
+          
+            for (int i = 0; i < cb.Count(); i++)
+            {
+                string s = "insert into ClassRoomsTypes(IDrooms,IDTypes,Flag) Values(@IDrooms,@IDTypes,@flag)";
+                command = new SqlCommand(s);
+                command.Connection = connection;
+                if(cb[i].IsChecked==true)
+                {
+                    command.Parameters.AddWithValue("@IDTypes", mapping[i]);
+                    command.Parameters.AddWithValue("@IDrooms", k);
+                    if (cb1[i].IsChecked == true) command.Parameters.AddWithValue("@flag", 1);
+                    else command.Parameters.AddWithValue("@flag", 0); 
+                    try
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("ERROR");
+                        return;
+                    }
+                   
+                }
+            }
+            MessageBox.Show("Добавлено");
         }
      
     }
