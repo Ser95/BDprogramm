@@ -92,8 +92,7 @@ namespace BD
             try
             {
                 SqlCommand sql = new SqlCommand(sqlcom, connection);
-                sql.ExecuteNonQuery();
-                
+                sql.ExecuteNonQuery();                
                 return true;
             }
             catch

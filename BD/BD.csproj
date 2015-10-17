@@ -68,25 +68,65 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ADDClassesWindow.xaml.cs">
+      <DependentUpon>ADDClassesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ADDClassRoomsWindow.xaml.cs">
       <DependentUpon>ADDClassRoomsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ADDCLRWIN.xaml.cs">
       <DependentUpon>ADDCLRWIN.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ADDEditWindow\ADDEditSubgroupsWindow.xaml.cs">
+      <DependentUpon>ADDEditSubgroupsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ADDEditWindow\ADDEditTeachers.xaml.cs">
+      <DependentUpon>ADDEditTeachers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ADDEditWindow\ADDEditTypeWindow.xaml.cs">
+      <DependentUpon>ADDEditTypeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ADDTableWin.xaml.cs">
+      <DependentUpon>ADDTableWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BDrep.cs" />
     <Compile Include="ClassRoomsWindow.xaml.cs">
       <DependentUpon>ClassRoomsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ForWorkBD.cs" />
+    <Compile Include="old\ClassRoom.cs" />
+    <Compile Include="old\ClassRoomType.cs" />
+    <Compile Include="old\StudentSubGroup.cs" />
+    <Compile Include="old\Teacher.cs" />
     <Compile Include="TableWindow.xaml.cs">
       <DependentUpon>TableWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ZapGrid.cs" />
+    <Page Include="ADDClassesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ADDClassRoomsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ADDCLRWIN.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ADDEditWindow\ADDEditSubgroupsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ADDEditWindow\ADDEditTeachers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ADDEditWindow\ADDEditTypeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ADDTableWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -139,7 +179,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image1.png" />
     <Content Include="TestDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -165,6 +204,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

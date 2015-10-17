@@ -1,0 +1,21 @@
+﻿<Window x:Class="BD.ADDEditTeachers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ADDEditTeachers" Height="238.806" Width="300" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+        <Label Content="Фамилия" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbLN" HorizontalAlignment="Left" Height="23" Margin="84,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198"/>
+        <Label Content="Имя" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbFN" HorizontalAlignment="Left" Height="23" Margin="84,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198"/>
+        <Label Content="Отчество" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbSN" HorizontalAlignment="Left" Height="23" Margin="84,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198"/>
+        <Label Content="Кафедра" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbCf" HorizontalAlignment="Left" Height="23" Margin="84,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198"/>
+        <Label Content="Должность" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbD" HorizontalAlignment="Left" Height="23" Margin="84,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198"/>
+        <CheckBox x:Name="cbClose" Content="Закрыть!!!" HorizontalAlignment="Left" Margin="10,183,0,0" VerticalAlignment="Top" Width="104"/>
+        <Button x:Name="btnSave" Content="Добавить" HorizontalAlignment="Left" Margin="162,181,0,0" VerticalAlignment="Top" Width="120" Click="btnSave_Click"/>
+        <Label x:Name="lbID" Content="ID" HorizontalAlignment="Left" Margin="10,161,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

@@ -29,19 +29,19 @@ namespace BD
         {
             if (flag == 0)
             {
-                CommandSelect = "select * from Types";
+                CommandSelect = "select IDTypes,Description from Types";
                 Name = "Типы аудиторий";
                 Title = Name;
             }
             else if(flag==1)
-            {                
-                CommandSelect = "select * from Teachers";
+            {
+                CommandSelect = "select IDTeachers,Cafedra,Dolgn,LName,FName,SName from Teachers";
                 Name = "Преподаватели";
                 Title = Name;
             }
             else if (flag == 2)
             {
-                CommandSelect = "select * from SubGroups";
+                CommandSelect = "select IDGroups,NameGroup,NumberSubGroup  from SubGroups";
                 Name = "Подгруппы";
                 Title = Name;                
             }
@@ -61,10 +61,13 @@ namespace BD
             }
             else if (flag == 1)
             {
-                Visiblecolumn = 2;
+                Visiblecolumn = 6;
                 dgViewData.Columns[0].Header = "Номер преподавателя";
-                dgViewData.Columns[1].Header = "ФИО преподавателя";
-            }
+                dgViewData.Columns[1].Header = "Кафедра";
+                dgViewData.Columns[2].Header = "Должность";
+                dgViewData.Columns[3].Header = "Фамилия";
+                dgViewData.Columns[4].Header = "Имя";
+                dgViewData.Columns[5].Header = "Отчество";            }
             else
             {
                 Visiblecolumn = 3;
@@ -106,30 +109,45 @@ namespace BD
                 MessageBox.Show("Необходимо выделить запись");
                 return;
             }
-            if (dgViewData.SelectedCells.Count > 2)
-            {
-                MessageBox.Show("Необходимо выделить одну запись");
-                return;
-            }
-            DataRowView rowView = dgViewData.SelectedValue as DataRowView;
-            MessageBox.Show(rowView[0].ToString());
+          
+         //   MessageBox.Show(rowView[0].ToString());
             string s;
             if (flag == 0)
             {
+                if (dgViewData.SelectedCells.Count > 2)
+                {
+                    MessageBox.Show("Необходимо выделить одну запись");
+                    return;
+                }
+                DataRowView rowView = dgViewData.SelectedValue as DataRowView;
               s = "delete from Types where IDTypes=" + rowView[0].ToString();
             }
             else if (flag == 1)
             {
+                if (dgViewData.SelectedCells.Count > 7)
+                {
+                    MessageBox.Show("Необходимо выделить одну запись");
+                    return;
+                }
+                DataRowView rowView = dgViewData.SelectedValue as DataRowView;
                 s = "delete from Teachers where IDTeachers=" + rowView[0].ToString();
             }
             else
             {
+                if (dgViewData.SelectedCells.Count > 3)
+                {
+                    MessageBox.Show("Необходимо выделить одну запись");
+                    return;
+                }
+                DataRowView rowView = dgViewData.SelectedValue as DataRowView;
                 s = "delete from SubGroups where IDGroups=" + rowView[0].ToString();
             }
             ////////////////
             if (fwbd.ExecCommand(s))
             {
                 MessageBox.Show("Удаление прошло успешно");
+                fwbd.FillingDataGrid(dgViewData, CommandSelect, Name);
+                HiddenColumns();
             }
             else
             {
@@ -140,11 +158,89 @@ namespace BD
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            //ADDTableWin f = new ADDTableWin(fwbd.connection, flag);
-            //f.ShowDialog();
-            BDrep f = new BDrep(fwbd.connection);
-            f.FilingTeachers();
-            MessageBox.Show("stop");
+            if(flag==0)
+            {
+                ADDEditTypeWindow f = new ADDEditTypeWindow(fwbd.connection, 0, 1);
+                f.ShowDialog();
+                fwbd.FillingDataGrid(dgViewData, CommandSelect, Name);
+                HiddenColumns();
+            }
+            if (flag == 1)
+            {
+                ADDEditTeachers f = new ADDEditTeachers(fwbd.connection, 0, 1);
+                f.ShowDialog();
+                fwbd.FillingDataGrid(dgViewData, CommandSelect, Name);
+                HiddenColumns();
+            }
+            if (flag == 2)
+            {
+                ADDEditSubgroupsWindow f = new ADDEditSubgroupsWindow(fwbd.connection, 0, 1);
+                f.ShowDialog();
+                fwbd.FillingDataGrid(dgViewData, CommandSelect, Name);
+                HiddenColumns();
+            }
+          //  MessageBox.Show("stop");
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            if(flag==0)
+            {
+                if (dgViewData.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Необходимо выделить запись");
+                    return;
+                }
+                if (dgViewData.SelectedCells.Count > 2)
+                {
+                    MessageBox.Show("Необходимо выделить одну запись");
+                    return;
+                }
+                DataRowView rowView = dgViewData.SelectedValue as DataRowView;
+                ADDEditTypeWindow f = new ADDEditTypeWindow(fwbd.connection, 1, Convert.ToInt32(rowView[0].ToString()));
+                f.ShowDialog();
+                fwbd.FillingDataGrid(dgViewData, CommandSelect, Name);
+                HiddenColumns();
+            }
+            if (flag == 1)
+            {
+                if (dgViewData.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Необходимо выделить запись");
+                    return;
+                }
+                if (dgViewData.SelectedCells.Count > 7)
+                {
+                    MessageBox.Show("Необходимо выделить одну запись");
+                    return;
+                }
+                DataRowView rowView = dgViewData.SelectedValue as DataRowView;
+                ADDEditTeachers f = new ADDEditTeachers(fwbd.connection, 1, Convert.ToInt32(rowView[0].ToString()));
+                f.ShowDialog();
+                fwbd.FillingDataGrid(dgViewData, CommandSelect, Name);
+                HiddenColumns();
+            }
+            if (flag == 2)
+            {
+                if (dgViewData.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Необходимо выделить запись");
+                    return;
+                }
+                if (dgViewData.SelectedCells.Count > 3)
+                {
+                    MessageBox.Show("Необходимо выделить одну запись");
+                    return;
+                }
+                DataRowView rowView = dgViewData.SelectedValue as DataRowView;
+                ADDEditSubgroupsWindow f = new ADDEditSubgroupsWindow(fwbd.connection, 1, Convert.ToInt32(rowView[0].ToString()));
+                f.ShowDialog();
+                fwbd.FillingDataGrid(dgViewData, CommandSelect, Name);
+                HiddenColumns();
+            }
+
+
+
         }
 
 
