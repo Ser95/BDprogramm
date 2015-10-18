@@ -70,9 +70,9 @@ namespace BD
                 for (int i = 0; i < dt.Rows.Count; i++)//выставить по высоте
                 {
                     ChB[i] = new CheckBox() { Content = dt.Rows[i][1].ToString() };
-                    ChB[i].Margin = new Thickness(10, 15 + 45 * i, 0, 0);
+                    ChB[i].Margin = new Thickness(10, 15 + 20 * i, 0, 0);
                     ChB1[i] = new CheckBox() { Content = "" };
-                    ChB1[i].Margin = new Thickness(120, 15 + 45 * i, 0, 0);
+                    ChB1[i].Margin = new Thickness(220, 15 + 20 * i, 0, 0);
                     grid.Children.Add(ChB[i]);
                     grid.Children.Add(ChB1[i]);
                     Mapping[i] = Convert.ToInt32(dt.Rows[i][0].ToString());

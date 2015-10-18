@@ -1,0 +1,20 @@
+﻿<Window x:Class="BD.ADDEDITClassesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ADDEDITClassesWindow" Height="305.97" Width="637.164" Loaded="Window_Loaded">
+    <Grid>
+        <ScrollViewer Name="scrTeacher" HorizontalAlignment="Left" Margin="10,91,0,12" Width="193"/>
+        <ScrollViewer Name="scrSubGroups" HorizontalAlignment="Left" Height="172" Margin="208,91,0,0" VerticalAlignment="Top" Width="207"/>
+        <ScrollViewer Name="scrType" HorizontalAlignment="Left" Height="172" Margin="420,91,0,0" VerticalAlignment="Top" Width="204"/>
+        <Label Content="Преподаватели" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="193"/>
+        <Label Content="Группы" HorizontalAlignment="Left" Margin="208,60,0,0" VerticalAlignment="Top" Width="207"/>
+        <Label Content="Тип аудитории" HorizontalAlignment="Left" Margin="420,60,0,0" VerticalAlignment="Top" RenderTransformOrigin="7.06,0.586" Width="204"/>
+        <Label Content="Название" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="tbName" HorizontalAlignment="Left" Height="23" Margin="83,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Количество пар" HorizontalAlignment="Left" Margin="234,10,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="tbCount" HorizontalAlignment="Left" Height="23" Margin="359,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Name="btnadd" Content="Добавить" HorizontalAlignment="Left" Margin="544,21,0,0" VerticalAlignment="Top" Width="75" Click="btnadd_Click"/>
+
+
+    </Grid>
+</Window>

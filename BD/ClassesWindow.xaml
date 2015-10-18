@@ -1,0 +1,12 @@
+﻿<Window x:Class="BD.ClassesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ClassesWindow" Height="314.926" Width="714.926" Loaded="Window_Loaded">
+    <Grid>
+        <DataGrid x:Name="dgViewdata" Margin="10,10,120,10" IsReadOnly="True"/>
+        <Button x:Name="btnadd" Content="ADD" HorizontalAlignment="Left" Margin="592,10,0,0" VerticalAlignment="Top" Width="105" Click="btnadd_Click"/>
+        <Button x:Name="btnedit" Content="Button" HorizontalAlignment="Left" Margin="592,37,0,0" VerticalAlignment="Top" Width="105"/>
+        <Button x:Name="btndel" Content="Button" HorizontalAlignment="Left" Margin="592,62,0,0" VerticalAlignment="Top" Width="105"/>
+        <Button x:Name="btnclose" Content="Button" HorizontalAlignment="Left" Margin="592,87,0,0" VerticalAlignment="Top" Width="105"/>
+    </Grid>
+</Window>

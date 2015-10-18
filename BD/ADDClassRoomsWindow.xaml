@@ -3,14 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Добавление аудитории" Height="314.925" Width="382.91" Loaded="Window_Loaded" >
     <Grid Margin="0,0,2,0">
-        <TextBox x:Name="tbNumber" HorizontalAlignment="Left" Height="23" Margin="124,14,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" MaxLength="4"/>
+        <TextBox x:Name="tbHousing" HorizontalAlignment="Left" Height="23" Margin="124,14,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" MaxLength="4"/>
         <Label Content="№ корпуса" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbHousing" HorizontalAlignment="Left" Height="23" Margin="124,45,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" MaxLength="4"/>
+        <TextBox x:Name="tbNumber" HorizontalAlignment="Left" Height="23" Margin="124,45,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" MaxLength="4"/>
         <Label Content="№ аудитории" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
         <Button HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top" Width="353" Height="38" Click="Button_Click" Content="Добавить аудиторию"/>
 
 
-        <ScrollViewer Name="scr" HorizontalAlignment="Left" Height="106" Margin="10,101,0,0" VerticalAlignment="Top" Width="353"/>
+        <ScrollViewer Name="scr" HorizontalAlignment="Left" Height="139" Margin="10,92,0,0" VerticalAlignment="Top" Width="353"/>
+        <CheckBox x:Name="chbClose" Content="Выход" HorizontalAlignment="Left" Margin="285,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Тип аудитории" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.538"/>
+        <Label Content="Нежелательный тип аудитории" HorizontalAlignment="Left" Margin="179,68,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

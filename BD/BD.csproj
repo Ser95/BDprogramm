@@ -68,14 +68,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ADDClassesWindow.xaml.cs">
-      <DependentUpon>ADDClassesWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ADDClassRoomsWindow.xaml.cs">
       <DependentUpon>ADDClassRoomsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ADDCLRWIN.xaml.cs">
-      <DependentUpon>ADDCLRWIN.xaml</DependentUpon>
+    <Compile Include="ADDEDITClassesWindow.xaml.cs">
+      <DependentUpon>ADDEDITClassesWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ADDEditWindow\ADDEditSubgroupsWindow.xaml.cs">
       <DependentUpon>ADDEditSubgroupsWindow.xaml</DependentUpon>
@@ -86,31 +83,31 @@
     <Compile Include="ADDEditWindow\ADDEditTypeWindow.xaml.cs">
       <DependentUpon>ADDEditTypeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ClassesWindow.xaml.cs">
+      <DependentUpon>ClassesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ClassRoomWindow.xaml.cs">
+      <DependentUpon>ClassRoomWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ADDTableWin.xaml.cs">
       <DependentUpon>ADDTableWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="BDrep.cs" />
-    <Compile Include="ClassRoomsWindow.xaml.cs">
-      <DependentUpon>ClassRoomsWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ForWorkBD.cs" />
     <Compile Include="old\ClassRoom.cs" />
     <Compile Include="old\ClassRoomType.cs" />
     <Compile Include="old\StudentSubGroup.cs" />
     <Compile Include="old\Teacher.cs" />
+    <Compile Include="StudentsClass.cs" />
     <Compile Include="TableWindow.xaml.cs">
       <DependentUpon>TableWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ZapGrid.cs" />
-    <Page Include="ADDClassesWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ADDClassRoomsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ADDCLRWIN.xaml">
+    <Page Include="ADDEDITClassesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,11 +123,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ADDTableWin.xaml">
+    <Page Include="ClassesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ClassRoomsWindow.xaml">
+    <Page Include="ClassRoomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ADDTableWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

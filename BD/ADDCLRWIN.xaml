@@ -1,8 +1,0 @@
-﻿<Window x:Name="W1" x:Class="BD.ADDCLRWIN"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ADDCLRWIN" Height="300" Width="300">
-    <Grid Name="qwer">
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="181,77,0,0" VerticalAlignment="Top" Height="18" Width="101"/>
-    </Grid>
-</Window>

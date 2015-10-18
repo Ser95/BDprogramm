@@ -1,0 +1,13 @@
+﻿<Window x:Class="BD.ClassRoomWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ClassRoomWindow" Height="291.045" Width="649.254" Loaded="Window_Loaded">
+    <Grid>
+        <DataGrid Name="dg" Margin="10,10,138,10" IsReadOnly="True"/>
+        <Button Name="btnADD" Content="Добавить" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="123" Click="btnADD_Click"/>
+        <Button Name="btnEdit" Content="Редактировать" HorizontalAlignment="Right" Margin="0,35,10,0" VerticalAlignment="Top" Width="123" Click="btnEdit_Click"/>
+        <Button Name="btnDel" Content="Удалить" HorizontalAlignment="Right" Margin="0,60,10,0" VerticalAlignment="Top" Width="123" Click="btnDel_Click"/>
+        <Button Name="btnClose" Content="Выход" HorizontalAlignment="Right" Margin="0,85,10,0" VerticalAlignment="Top" Width="123" Click="btnClose_Click"/>
+
+    </Grid>
+</Window>

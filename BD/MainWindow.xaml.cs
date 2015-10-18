@@ -29,11 +29,10 @@ namespace BD
         }
         void Zapusk()
         {
-           
+            string filename = System.Environment.CurrentDirectory + "\\bd4.mdf";
             SqlConnectionStringBuilder strokapodkl = new SqlConnectionStringBuilder();
             strokapodkl.DataSource = "(LocalDB)\\v11.0";
-           // strokapodkl.AttachDBFilename = @"D:\документы\4институт\ЭС\расписание\BD\BD\TestDB.mdf";
-            strokapodkl.InitialCatalog="bd4";
+            strokapodkl.AttachDBFilename = filename;
             strokapodkl.IntegratedSecurity = true;
             strokapodkl.CurrentLanguage = "russian";
             connection = new SqlConnection(strokapodkl.ConnectionString);
@@ -59,8 +58,7 @@ namespace BD
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            ADDClassRoomsWindow f = new ADDClassRoomsWindow(connection);
-            f.Show();
+          
             //ClassRoomsWindow f = new ClassRoomsWindow(connection);
             //f.Show();
         }
@@ -68,7 +66,14 @@ namespace BD
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             BDrep r = new BDrep(connection);
+            ClassRoomWindow f = new ClassRoomWindow(connection);
+            f.ShowDialog();
+        }
 
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            ClassesWindow f = new ClassesWindow(connection);
+            f.ShowDialog();
         }
     }
 }
