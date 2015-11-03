@@ -31,13 +31,14 @@ namespace BD
         {
             string filename = System.Environment.CurrentDirectory + "\\bd4.mdf";
             SqlConnectionStringBuilder strokapodkl = new SqlConnectionStringBuilder();
-            strokapodkl.DataSource = "(LocalDB)\\v11.0";
+            strokapodkl.DataSource = "(localdb)\\MSSQLLocalDB";
             strokapodkl.AttachDBFilename = filename;
             strokapodkl.IntegratedSecurity = true;
             strokapodkl.CurrentLanguage = "russian";
             connection = new SqlConnection(strokapodkl.ConnectionString);
             connection.Open();
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {          
             TableWindow f = new TableWindow(1,connection);
