@@ -18,6 +18,7 @@ namespace BD
 {
     /// <summary>
     /// Логика взаимодействия для ADDClassRoomsWindow.xaml
+	
     /// </summary>
     public partial class ADDClassRoomsWindow : Window
     {
